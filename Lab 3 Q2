@@ -1,0 +1,3 @@
+SELECT cl.Language, c.Name from CountryLanguage cl, Country c
+WHERE cl.CountryCode = c.Code
+GROUP BY c.name;
