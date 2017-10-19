@@ -1,0 +1,5 @@
+SELECT cl.Language from CountryLanguage cl, Country co
+WHERE cl.CountryCode = co.Code
+ORDER BY (cl.Percentage * co.Population/100) DESC;
+
+not correct as it doesn't sum languages from different countries
