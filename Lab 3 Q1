@@ -1,0 +1,2 @@
+SELECT c.name, co.name from City c, Country co
+WHERE c.name like 'A%' and c.CountryCode = co.Code;
