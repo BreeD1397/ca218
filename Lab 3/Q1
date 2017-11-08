@@ -1,4 +1,4 @@
-*List the name of each city that begins with the letter ‘A” and the country that city is in.*
+;List the name of each city that begins with the letter ‘A” and the country that city is in.
 
 SELECT c.name, co.name from City c, Country co
 WHERE c.name like 'A%' and c.CountryCode = co.Code;
