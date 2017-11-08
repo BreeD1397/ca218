@@ -1,2 +1,0 @@
-SELECT avg(amount) from payments
-WHERE YEAR(paymentDate) = 2004
