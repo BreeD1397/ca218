@@ -1,3 +1,0 @@
-SELECT quantityInStock, productName from products
-WHERE quantityInStock > (SELECT avg(quantityInStock) from products)
-ORDER BY quantityInStock DESC
