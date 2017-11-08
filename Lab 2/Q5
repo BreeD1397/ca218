@@ -1,0 +1,9 @@
+;Using the world database list the countrycode and the number of cities in that
+;Country, ordered from highest to lowest
+
+
+
+SELECT co.Code, (count(c.Name)) as Cities from City c, Country co
+WHERE co.Code = c.CountryCode
+GROUP BY co.Code ASC
+ORDER BY count(c.name) DESC
