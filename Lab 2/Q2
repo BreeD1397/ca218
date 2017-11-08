@@ -1,0 +1,5 @@
+;Using sakila, return the number of films with the category_id 3
+
+SELECT COUNT(category_id) as 'Category 3 films'
+FROM film_category
+WHERE category_id = '3'
