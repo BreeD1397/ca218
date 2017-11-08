@@ -1,0 +1,4 @@
+SELECT co.Code, co.Name, count(c.Name) from City c, Country co
+WHERE co.Code = c.CountryCode
+GROUP BY co.Code ASC
+ORDER BY count(c.name) DESC
