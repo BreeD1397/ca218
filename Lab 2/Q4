@@ -1,0 +1,6 @@
+;Using classicmodels list all products where the quantity in stock is greater
+;than the average
+
+SELECT quantityInStock, productName from products
+WHERE quantityInStock > (SELECT avg(quantityInStock) from products)
+ORDER BY quantityInStock DESC
