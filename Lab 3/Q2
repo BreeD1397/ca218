@@ -1,0 +1,6 @@
+;List the name of the language and the name of the country for the most common language
+;spoken for all countries.
+
+SELECT cl.Language, c.Name from CountryLanguage cl, Country c
+WHERE cl.CountryCode = c.Code
+GROUP BY c.name;
