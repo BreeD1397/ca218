@@ -1,0 +1,6 @@
+;Using classicmodels return the average payment made by customers in 2004
+*note, you can use the function YEAR to return the year from a date, e.g.
+YEAR(2017-10-11) returns 2017*
+
+SELECT avg(amount) from payments
+WHERE YEAR(paymentDate) = 2004
