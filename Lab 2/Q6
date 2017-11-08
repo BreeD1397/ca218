@@ -1,0 +1,6 @@
+;Using the world database list the total population of all regions and their
+;average life expectancy ordered by life expectancy from highest to lowest.
+
+SELECT Region, Population, LifeExpectancy from Country
+GROUP BY Region
+ORDER BY LifeExpectancy DESC
