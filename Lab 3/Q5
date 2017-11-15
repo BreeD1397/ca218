@@ -1,6 +1,6 @@
 ;List the top 5 most popular categories of films that been borrowed by customers
 
-SELECT fc.category_id, c.name, (sum(fc.category_id)) as "Times borrowed"
+SELECT fc.category_id, (c.name) as Category, (sum(fc.category_id)) as "Times borrowed"
 FROM film_category fc 
 JOIN film f
 on fc.film_id = f.film_id
