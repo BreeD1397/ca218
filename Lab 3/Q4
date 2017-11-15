@@ -1,12 +1,7 @@
-#SELECT f.film_id, f.title, f.release_year, fa.actor_id, a.first_name, a.last_name from film f, film_actor fa, actor a
-#WHERE f.film_id = fa.film_id and a.actor_id = fa.actor_id
-#SELECT f.film_id, f.title, f.release_year, fa.actor_id from film f, film_actor fa
-#WHERE f.film_id = fa.film_id and EXISTS (SELECT fa.actor_id 
-#from film_actor
-#where f.film_id = fa.film_id)
-#GROUP BY f.film_id ASC
-SELECT a.first_Name, a.last_name, fa.actor_id, f.title, f.film_id from actor a, film_actor fa, film f
-WHERE a.actor_id = fa.actor_id and f.film_id = fa.film_id
-GROUP BY title
+Q4: List the id, title and release year of a film for films which don’t have actors listed in the
+database.
 
-rough work
+SELECT F.film_id, title, release_year
+FROM film F
+LEFT JOIN film_actor FA ON F.film_id=FA.film_id
+WHERE FA.film_id IS NULL;
