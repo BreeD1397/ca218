@@ -1,9 +1,15 @@
 ;List the details (film id, film name, category name, description) of all English films which have
 ;more than three actors.
 
-SELECT f.film_id, f.language_id ,count(DISTINCT actor_id) as "actors"
+SELECT f.film_id, f.title, c.name, ft.description, count(DISTINCT actor_id) as "actors"
 FROM film_actor fa LEFT JOIN film f 
 on fa.film_id = f.film_id
+JOIN film_category fc
+on f.film_id = fc.film_id
+JOIN category c 
+on fc.category_id = c.category_id
+JOIN film_text ft
+on f.film_id = ft.film_id
 WHERE f.language_id = 1
 GROUP BY film_id
 HAVING count(DISTINCT actor_id) > 2
