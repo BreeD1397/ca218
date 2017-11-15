@@ -1,5 +1,5 @@
-Q4: List the id, title and release year of a film for films which don’t have actors listed in the
-database.
+;List the id, title and release year of a film for films which don’t have actors listed in the
+;database.
 
 SELECT F.film_id, title, release_year
 FROM film F
