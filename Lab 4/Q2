@@ -1,0 +1,10 @@
+;For each country, list the number of English Speakers, and the percentage of
+;worldwide English speakers in that country
+
+SELECT co.Name, cl.Language, (co.Population*cl.Percentage/100) AS Speakers, (co.Population*cl.Percentage/100/qSpeakers*100) AS Percentage FROM CountryLanguage cl
+JOIN Country co ON co.Code = cl.CountryCode
+JOIN(SELECT cl.Language, SUM(co.Population*cl.Percentage/100) AS qSpeakers
+FROM CountryLanguage cl
+JOIN Country co ON co.Code = cl.CountryCode
+WHERE cl.Language = "English") AS q
+WHERE cl.Language = "English"
