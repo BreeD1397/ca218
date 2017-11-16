@@ -1,0 +1,11 @@
+;List the country name, city name and population for all cities with a population
+;greater than the average population for all cities in a country.
+
+
+SELECT co.Name, ci.Name, ci.Population
+FROM City ci 
+JOIN Country co ON ci.CountryCode = co.code
+JOIN (SELECT CountryCode, AVG(Population) AS avg_city
+FROM City
+GROUP BY CountryCode) AS q ON q.CountryCode = ci.CountryCode
+WHERE ci.Population >= q.avg_city
