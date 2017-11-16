@@ -1,12 +1,10 @@
 ;List the top 5 most popular categories of films that been borrowed by customers
 
-SELECT fc.category_id, (c.name) as Category, (sum(fc.category_id)) as "Times borrowed"
-FROM film_category fc 
-JOIN film f
-on fc.film_id = f.film_id
-JOIN category c
-on fc.category_id = c.category_id
-WHERE f.rental_duration != 0
+SELECT (c.name) as Category, COUNT(*)NBR_RENT FROM film f 
+JOIN film_category fc on f.film_id = fc.film_id
+JOIN category c on fc.category_id = c.category_id
+JOIN inventory i ON f.film_id = i.film_id
+JOIN rental r ON i.inventory_id = r.inventory_id
 GROUP BY fc.category_id
-ORDER BY sum(fc.category_id) DESC
+ORDER BY NBR_RENT DESC
 LIMIT 5
